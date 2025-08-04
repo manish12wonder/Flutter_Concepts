@@ -24,7 +24,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Dynamic Theme Switcher',
-
+      debugShowCheckedModeBanner: false,
       // Apply current theme mode
       themeMode: _themeMode,
 

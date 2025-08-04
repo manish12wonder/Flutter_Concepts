@@ -44,7 +44,7 @@ class _MyAppState extends State<MyApp> {
         useMaterial3: true,
       ),
 
-      home: MyHomePage(onToggleTheme: _toggleTheme, isDarkMode: false,),
+      home: MyHomePage(onToggleTheme: _toggleTheme, isDarkMode: _themeMode == ThemeMode.dark ,),
     );
   }
 }

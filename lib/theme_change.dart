@@ -68,7 +68,8 @@ class MyHomePage extends StatelessWidget {
           ),
           tooltip: 'Toggle Theme',
         ),
-      ],),
+      ],
+      ),
       body: Center(
         child: ElevatedButton(
           onPressed: onToggleTheme,

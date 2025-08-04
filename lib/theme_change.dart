@@ -16,7 +16,9 @@ class _MyAppState extends State<MyApp> {
 
   void _toggleTheme() {
     setState(() {
-      _themeMode = _themeMode == ThemeMode.light ? ThemeMode.dark : ThemeMode.light;
+      _themeMode = _themeMode == ThemeMode.light
+          ? ThemeMode.dark
+          : ThemeMode.light;
     });
   }
 
@@ -42,20 +44,31 @@ class _MyAppState extends State<MyApp> {
         useMaterial3: true,
       ),
 
-      home: MyHomePage(onToggleTheme: _toggleTheme),
+      home: MyHomePage(onToggleTheme: _toggleTheme, isDarkMode: false,),
     );
   }
 }
 
 class MyHomePage extends StatelessWidget {
   final VoidCallback onToggleTheme;
+  final bool isDarkMode;
 
-  const MyHomePage({super.key, required this.onToggleTheme});
+  const MyHomePage({super.key, required this.onToggleTheme, required this.isDarkMode});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Tap to Toggle Theme')),
+      appBar: AppBar(title: const Text('Tap to Toggle Theme'),
+      actions: [
+        IconButton(
+          onPressed: onToggleTheme,
+          icon: Text(
+            isDarkMode ? '☀️' : '🌙',
+            style: const TextStyle(fontSize: 20),
+          ),
+          tooltip: 'Toggle Theme',
+        ),
+      ],),
       body: Center(
         child: ElevatedButton(
           onPressed: onToggleTheme,
